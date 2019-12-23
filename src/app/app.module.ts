@@ -8,11 +8,9 @@ import { HttpClientModule } from '@angular/common/http';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { UserNewComponent } from './components/user-new/user-new.component';
 import { UserListComponent } from './components/user-list/user-list.component';
-
-// NGX
-import { BsDropdownModule } from 'ngx-bootstrap';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +18,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     UserNewComponent,
     UserListComponent,
     NotFoundComponent,
+    HeaderComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,8 +27,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    BsDropdownModule.forRoot(),
-    ModalModule.forRoot()
   ],
   providers: [
     UserService

@@ -16,10 +16,8 @@ export class UserService {
 
   insertOrUpdate(user: User) {
     if (user.id != null) {
-      console.log("PUT");
       return this.http.put(`${LOJA_API}/users/${user.id}`, user);
     } else {
-      console.log("POST");
       return this.http.post(`${LOJA_API}/users`, user);
     }
   }

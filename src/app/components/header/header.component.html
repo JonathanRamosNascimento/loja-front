@@ -1,0 +1,11 @@
+<header>
+    <div class="header">
+        <div class="logoimg"></div>
+        <div class="menu">
+            <ul>
+                <li [ngClass]="{active: menuAtivo === 'usuarios'}"><a [routerLink]="['/']" (click)="ativo('usuarios')">Usuários</a></li>
+                <li [ngClass]="{active: menuAtivo === 'novoUsuario'}"><a [routerLink]="['/new']" (click)="ativo('novoUsuario')">Novo Usuários</a></li>
+            </ul>
+        </div>
+    </div>
+</header>
