@@ -12,10 +12,10 @@ export class HeaderComponent implements OnInit {
     private route: ActivatedRoute
   ) { }
 
-  menuAtivo: string = 'usuarios';
+  menuAtivo: string;
 
   ngOnInit() {
-    this.menuAtivo = localStorage.getItem('menu');
+    this.menuAtivo = 'usuarios';
   }
   
   ativo(a: string) {

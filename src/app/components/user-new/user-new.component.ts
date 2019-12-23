@@ -13,6 +13,8 @@ import { Router } from '@angular/router';
 })
 export class UserNewComponent implements OnInit {
 
+  public mask = ['(', /[1-9]/, /\d/, ')', /\d/, /\d/, /\d/, /\d/,/\d/, '-', /\d/, /\d/, /\d/, /\d/];
+
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
@@ -21,19 +23,24 @@ export class UserNewComponent implements OnInit {
 
   userForm = this.fb.group({
     id: [null],
-    name: ['', [Validators.required]],
-    email: ['', [Validators.required]],
+    name: ['', [Validators.required, Validators.minLength(10)]],
+    email: ['', [Validators.required, Validators.email]],
     phone: ['', [Validators.required]],
     password: ['', [Validators.required]],
+    password1: ['', [Validators.required]],
   })
 
   ngOnInit() {
   }
 
   insert(user: User) {
-    console.log(user);
-    this.userService.insertOrUpdate(user).subscribe(res => {
-      this.router.navigateByUrl('/');
-    });
+    if(this.userForm.controls['password'].value === this.userForm.controls['password1'].value) {
+      this.userService.insertOrUpdate(user).subscribe(res => {
+        this.router.navigateByUrl('/');
+      });
+    } else {
+      alert("Senhas diferentes.")
+    }
+    
   }
 }
