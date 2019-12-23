@@ -1,0 +1,1 @@
+export const LOJA_API: string = 'http://localhost:8080';

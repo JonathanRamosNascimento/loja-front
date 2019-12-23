@@ -1,0 +1,21 @@
+<form [formGroup]="userForm" novalidate>
+
+    <label for="name">Nome:</label>
+    <input type="text" class="form-control" formControlName="name" autocomplete="off"><br>
+
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" formControlName="email" autocomplete="off"><br>
+
+    <label for="phone">Phone:</label>
+    <input type="text" class="form-control" formControlName="phone" autocomplete="off"><br>
+
+    <label for="password">Password:</label>
+    <input type="password" class="form-control" formControlName="password" autocomplete="off"><br>
+
+    <button class="btn btn-success" (click)="insert(userForm.value)" [disabled]="!userForm.valid">Salvar</button>
+    <button class="btn btn-danger" [routerLink]="['/']" >Cancelar</button>
+
+</form>
+
+
+<pre>{{ userForm.value | json }}</pre>

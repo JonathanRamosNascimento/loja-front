@@ -1,30 +1,38 @@
+import { UserService } from './services/user.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NewUserComponent } from './components/new-user/new-user.component';
-import { ListUserComponent } from './components/list-user/list-user.component';
-import { NewCategoryComponent } from './components/new-category/new-category.component';
-import { ListCategoryComponent } from './components/list-category/list-category.component';
-import { NewProductComponent } from './components/new-product/new-product.component';
-import { ListProductComponent } from './components/list-product/list-product.component';
+import { HttpClientModule } from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { UserNewComponent } from './components/user-new/user-new.component';
+import { UserListComponent } from './components/user-list/user-list.component';
+
+// NGX
+import { BsDropdownModule } from 'ngx-bootstrap';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NewUserComponent,
-    ListUserComponent,
-    NewCategoryComponent,
-    ListCategoryComponent,
-    NewProductComponent,
-    ListProductComponent
+    UserNewComponent,
+    UserListComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule,
+    BsDropdownModule.forRoot(),
+    ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
