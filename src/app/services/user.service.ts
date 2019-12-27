@@ -22,8 +22,8 @@ export class UserService {
     }
   }
 
-  findAll() {
-    return this.http.get(`${LOJA_API}/users`);
+  findAll(atual: number, quantidade: number) {
+    return this.http.get(`${LOJA_API}/users?page=${atual}&size=${quantidade}`);
   }
 
   findById(id: number) {

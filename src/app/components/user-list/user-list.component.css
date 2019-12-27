@@ -1,3 +1,9 @@
 .list {
     margin-top: 15px;
 }
+
+.botoes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

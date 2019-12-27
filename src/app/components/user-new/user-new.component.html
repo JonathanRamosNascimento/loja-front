@@ -15,8 +15,7 @@
             </div>
 
             <div class="col-sm-4">
-                <label for="phone">Telefone:</label>
-                <!-- <input type="number" class="form-control" formControlName="phone"> -->
+                <label for="phone">Nº Celular:</label>
                 <input [textMask]="{mask: mask}" class="form-control" formControlName="phone" type="text"/>
             </div>
         </div>
@@ -33,14 +32,10 @@
         </div>
 
 
-        <button class="btn btn-salvar" (click)="insert(userForm.value)" [disabled]="!userForm.valid">Salvar</button>
+        <button class="btn btn-primary" (click)="insert(userForm.value)" [disabled]="!userForm.valid">Salvar</button>
         <div class="float-right">
             <button class="btn btn-danger" [routerLink]="['/']">Cancelar</button>
         </div>
 
     </div>
-
 </form>
-
-
-<pre>{{ userForm.value | json }}</pre>

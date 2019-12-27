@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user-list.component.css']
 })
 export class UserListComponent implements OnInit {
+  atual: number = 0;
+  quantidade: number = 10;
 
   constructor(
     private userService: UserService
@@ -15,19 +17,23 @@ export class UserListComponent implements OnInit {
   users: any;
 
   ngOnInit() {
-    this.findAll();
+    this.findAll(this.atual, this.quantidade);
   }
 
-  findAll() {
-    let teste = this.userService.findAll();
-    teste.subscribe((res) => {
+  page(n) {
+    this.atual += n;
+    this.findAll(this.atual, this.quantidade);
+  }
+
+  findAll(autal, quantidade) {
+    this.userService.findAll(autal, quantidade).subscribe((res) => {
       this.users = res;
     });
   }
 
   delete(i) {
-    this.userService.delete(i).subscribe(() =>{
-      this.findAll();
+    this.userService.delete(i).subscribe(() => {
+      this.findAll(this.atual, this.quantidade);
     });
   }
 

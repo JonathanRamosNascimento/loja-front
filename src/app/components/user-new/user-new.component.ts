@@ -35,6 +35,11 @@ export class UserNewComponent implements OnInit {
 
   insert(user: User) {
     if(this.userForm.controls['password'].value === this.userForm.controls['password1'].value) {
+      let cel = this.userForm.controls['phone'].value;
+      cel = cel.replace(/[()-]/gi, "");
+      // this.userForm.controls['phone'].setValue(cel);
+      user.phone = cel;
+      console.log(this.userForm.value)
       this.userService.insertOrUpdate(user).subscribe(res => {
         this.router.navigateByUrl('/');
       });

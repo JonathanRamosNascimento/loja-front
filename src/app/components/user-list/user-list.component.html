@@ -4,7 +4,7 @@
             <h2>Lista de Usuários</h2>
         </div>
         <div class="card-body">
-            <table class="table table-bordered" *ngIf="users != ''; else vazio">
+            <table class="table table-bordered" *ngIf="users.content != ''; else vazio">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -13,16 +13,25 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody *ngFor="let user of users">
+                <tbody *ngFor="let user of users.content">
                     <tr>
                         <td>{{user.name}}</td>
                         <td>{{user.email}}</td>
                         <td>{{user.phone}}</td>
-                        <td><button (click)="delete(user.id)" class="btn btn-danger">X</button></td>
+                        <td>
+                            <button (click)="delete(user.id)" class="btn btn-info">VISUALIZAR</button>
+                            <button (click)="delete(user.id)" class="btn btn-secondary">EDITAR</button>
+                            <button (click)="delete(user.id)" class="btn btn-danger">DELETAR</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
             <ng-template #vazio>Lista Vazia</ng-template>
+            <div class="botoes">
+                <button class="btn btn-primary" (click)="page(-1)" [disabled]="users.first">Anterior</button>
+                <label>Página {{users.number + 1}} das {{users.totalPages}}</label>
+                <button class="btn btn-primary" (click)="page(1)" [disabled]="users.last">Proxima</button>
+            </div>
         </div>
         <div class="card-footer">
             <button [routerLink]="['/new']" class="btn btn-primary">Novo Usuário</button>

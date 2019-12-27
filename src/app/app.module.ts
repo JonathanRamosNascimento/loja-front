@@ -12,6 +12,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { TextMaskModule } from 'angular2-text-mask';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { TextMaskModule } from 'angular2-text-mask';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    TextMaskModule
+    TextMaskModule,
+    PaginationModule,
   ],
   providers: [
     UserService
