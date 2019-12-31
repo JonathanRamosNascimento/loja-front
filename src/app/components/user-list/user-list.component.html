@@ -27,14 +27,13 @@
                 </tbody>
             </table>
             <ng-template #vazio>Lista Vazia</ng-template>
+        </div>
+        <div class="card-footer">
             <div class="botoes">
                 <button class="btn btn-primary" (click)="page(-1)" [disabled]="users.first">Anterior</button>
                 <label>Página {{users.number + 1}} das {{users.totalPages}}</label>
                 <button class="btn btn-primary" (click)="page(1)" [disabled]="users.last">Proxima</button>
             </div>
-        </div>
-        <div class="card-footer">
-            <button [routerLink]="['/new']" class="btn btn-primary">Novo Usuário</button>
         </div>
     </div>
 </div>

@@ -1,6 +1,6 @@
 <header>
     <div class="header">
-        <div class="logoimg"></div>
+        <a href="" class="logoimg" [routerLink]="['/']"></a>
         <div class="menu">
             <ul>
                 <li [ngClass]="{active: menuAtivo === 'usuarios'}"><a [routerLink]="['/']" (click)="ativo('usuarios')">Usuários</a></li>
